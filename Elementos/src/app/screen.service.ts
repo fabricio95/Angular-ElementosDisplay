@@ -6,7 +6,8 @@ export class ScreenService {
     private resizeSource = new Subject<null>();
     resize$ = this.resizeSource.asObservable();
 
-    largeBreakpoint = 800;
+    larguraLimite = 800;
+    alturaLimite = 600;
     screenWidth = 1280;
     screenHeight = 1080;
 
@@ -22,7 +23,7 @@ export class ScreenService {
     }
 
     isLarge() : boolean {
-        return this.screenWidth >= this.largeBreakpoint;
+        return this.screenWidth >= this.larguraLimite && this.screenHeight >= this.alturaLimite;
     }
 
     onResize($event) : void {
